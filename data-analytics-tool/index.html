@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Analytics Tool</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 Data Analytics Tool</h1>
+            <p class="subtitle">Powerful data analysis with 10 essential features</p>
+        </header>
+
+        <div class="main-content">
+            <!-- Feature 1: Data Import -->
+            <section class="feature-section">
+                <h2>1. Data Import</h2>
+                <div class="feature-content">
+                    <input type="file" id="csvFile" accept=".csv" />
+                    <button onclick="loadSampleData()">Load Sample Data</button>
+                    <div id="importStatus"></div>
+                </div>
+            </section>
+
+            <!-- Feature 2: Data Preview -->
+            <section class="feature-section">
+                <h2>2. Data Preview</h2>
+                <div class="feature-content">
+                    <div id="dataPreview" class="data-table"></div>
+                </div>
+            </section>
+
+            <!-- Feature 3: Statistical Summary -->
+            <section class="feature-section">
+                <h2>3. Statistical Summary</h2>
+                <div class="feature-content">
+                    <select id="summaryColumn">
+                        <option value="">Select column...</option>
+                    </select>
+                    <button onclick="generateSummary()">Generate Summary</button>
+                    <div id="summaryOutput"></div>
+                </div>
+            </section>
+
+            <!-- Feature 4: Data Visualization -->
+            <section class="feature-section">
+                <h2>4. Data Visualization</h2>
+                <div class="feature-content">
+                    <div class="chart-controls">
+                        <select id="chartType">
+                            <option value="bar">Bar Chart</option>
+                            <option value="line">Line Chart</option>
+                            <option value="pie">Pie Chart</option>
+                            <option value="scatter">Scatter Plot</option>
+                        </select>
+                        <select id="xAxis">
+                            <option value="">X-Axis...</option>
+                        </select>
+                        <select id="yAxis">
+                            <option value="">Y-Axis...</option>
+                        </select>
+                        <button onclick="createChart()">Create Chart</button>
+                    </div>
+                    <canvas id="mainChart"></canvas>
+                </div>
+            </section>
+
+            <!-- Feature 5: Data Filtering -->
+            <section class="feature-section">
+                <h2>5. Data Filtering</h2>
+                <div class="feature-content">
+                    <select id="filterColumn">
+                        <option value="">Select column...</option>
+                    </select>
+                    <select id="filterOperator">
+                        <option value="equals">Equals</option>
+                        <option value="contains">Contains</option>
+                        <option value="greater">Greater than</option>
+                        <option value="less">Less than</option>
+                    </select>
+                    <input type="text" id="filterValue" placeholder="Filter value" />
+                    <button onclick="applyFilter()">Apply Filter</button>
+                    <button onclick="clearFilter()">Clear Filter</button>
+                    <div id="filterStatus"></div>
+                </div>
+            </section>
+
+            <!-- Feature 6: Data Sorting -->
+            <section class="feature-section">
+                <h2>6. Data Sorting</h2>
+                <div class="feature-content">
+                    <select id="sortColumn">
+                        <option value="">Select column...</option>
+                    </select>
+                    <select id="sortOrder">
+                        <option value="asc">Ascending</option>
+                        <option value="desc">Descending</option>
+                    </select>
+                    <button onclick="sortData()">Sort Data</button>
+                </div>
+            </section>
+
+            <!-- Feature 7: Correlation Analysis -->
+            <section class="feature-section">
+                <h2>7. Correlation Analysis</h2>
+                <div class="feature-content">
+                    <select id="corrColumn1">
+                        <option value="">Select first column...</option>
+                    </select>
+                    <select id="corrColumn2">
+                        <option value="">Select second column...</option>
+                    </select>
+                    <button onclick="calculateCorrelation()">Calculate Correlation</button>
+                    <div id="correlationOutput"></div>
+                </div>
+            </section>
+
+            <!-- Feature 8: Trend Analysis -->
+            <section class="feature-section">
+                <h2>8. Trend Analysis</h2>
+                <div class="feature-content">
+                    <select id="trendColumn">
+                        <option value="">Select column...</option>
+                    </select>
+                    <button onclick="analyzeTrend()">Analyze Trend</button>
+                    <div id="trendOutput"></div>
+                    <canvas id="trendChart"></canvas>
+                </div>
+            </section>
+
+            <!-- Feature 9: Data Export -->
+            <section class="feature-section">
+                <h2>9. Data Export</h2>
+                <div class="feature-content">
+                    <button onclick="exportToCSV()">Export to CSV</button>
+                    <button onclick="exportToJSON()">Export to JSON</button>
+                    <button onclick="exportReport()">Export Analysis Report</button>
+                </div>
+            </section>
+
+            <!-- Feature 10: Outlier Detection -->
+            <section class="feature-section">
+                <h2>10. Outlier Detection</h2>
+                <div class="feature-content">
+                    <select id="outlierColumn">
+                        <option value="">Select column...</option>
+                    </select>
+                    <button onclick="detectOutliers()">Detect Outliers</button>
+                    <div id="outlierOutput"></div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
